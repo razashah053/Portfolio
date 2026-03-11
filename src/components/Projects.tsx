@@ -20,17 +20,17 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay }}
-        className="project-card col-span-2 bg-[#0a0a0a] p-12 relative overflow-hidden group cursor-default transition-colors hover:bg-[#0e0e0e]"
+        className="project-card col-span-1 lg:col-span-2 bg-[#0a0a0a] p-6 lg:p-12 relative overflow-hidden group cursor-default transition-colors hover:bg-[#0e0e0e]"
       >
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-accent2 scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100" />
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12">
           <div>
-            <div className="font-syne text-[64px] font-extrabold text-border leading-none mb-6 transition-colors group-hover:text-subtle">
+            <div className="font-syne text-[48px] lg:text-[64px] font-extrabold text-border leading-none mb-4 lg:mb-6 transition-colors group-hover:text-subtle">
               {project.num}
             </div>
 
-            <div className="flex gap-2 flex-wrap mb-5">
+            <div className="flex gap-2 flex-wrap mb-3 lg:mb-5">
               {project.tags.map((tag) => (
                 <span
                   key={tag}
@@ -41,8 +41,8 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
               ))}
             </div>
 
-            <h3 className="font-syne text-[22px] font-bold mb-3 tracking-tight">{project.name}</h3>
-            <p className="text-muted text-xs leading-relaxed mb-8">{project.description}</p>
+            <h3 className="font-syne text-xl lg:text-[22px] font-bold mb-2 lg:mb-3 tracking-tight">{project.name}</h3>
+            <p className="text-muted text-sm lg:text-base leading-relaxed mb-6 lg:mb-8">{project.description}</p>
 
             <div className="flex gap-5">
               <a
@@ -63,8 +63,8 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
           </div>
 
           {/* Animated bars visual */}
-          <div className="bg-subtle border border-border rounded h-60 relative overflow-hidden flex items-center justify-center">
-            <div className="flex items-end gap-1.5 h-36">
+          <div className="bg-subtle border border-border rounded h-24 lg:h-60 relative overflow-hidden flex items-center justify-center">
+            <div className="flex items-end gap-1.5 h-16 lg:h-36">
               {[40, 70, 55, 90, 65, 80, 45, 95, 60].map((height, i) => (
                 <motion.div
                   key={i}
@@ -97,15 +97,15 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay }}
-      className="project-card bg-[#0a0a0a] p-12 relative overflow-hidden group cursor-default transition-colors hover:bg-[#0e0e0e]"
+      className="project-card bg-[#0a0a0a] p-4 lg:p-12 relative overflow-hidden group cursor-default transition-colors hover:bg-[#0e0e0e] min-h-0"
     >
       <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent to-accent2 scale-x-0 origin-left transition-transform duration-400 group-hover:scale-x-100" />
 
-      <div className="font-syne text-[64px] font-extrabold text-border leading-none mb-6 transition-colors group-hover:text-subtle">
+      <div className="font-syne text-[48px] lg:text-[64px] font-extrabold text-border leading-none mb-4 lg:mb-6 transition-colors group-hover:text-subtle">
         {project.num}
       </div>
 
-      <div className="flex gap-2 flex-wrap mb-5">
+      <div className="flex gap-2 flex-wrap mb-3 lg:mb-5">
         {project.tags.map((tag) => (
           <span
             key={tag}
@@ -116,8 +116,8 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
         ))}
       </div>
 
-      <h3 className="font-syne text-[22px] font-bold mb-3 tracking-tight">{project.name}</h3>
-      <p className="text-muted text-xs leading-relaxed mb-8">{project.description}</p>
+      <h3 className="font-syne text-xl lg:text-[22px] font-bold mb-2 lg:mb-3 tracking-tight">{project.name}</h3>
+      <p className="text-muted text-sm lg:text-base leading-relaxed mb-4 lg:mb-8 line-clamp-3 lg:line-clamp-none">{project.description}</p>
 
       <div className="flex gap-5">
         <a
@@ -142,7 +142,7 @@ export default function Projects() {
   const { isVisible } = useScrollReveal(sectionRef);
 
   return (
-    <section id="projects" ref={sectionRef} className="bg-surface px-12 py-32">
+    <section id="projects" ref={sectionRef} className="bg-surface px-6 lg:px-12 py-20 lg:py-32">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
@@ -157,7 +157,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="font-syne text-[clamp(36px,4vw,56px)] font-extrabold tracking-[-2px] leading-none mb-16"
+        className="font-syne text-[clamp(36px,4vw,56px)] font-extrabold tracking-[-2px] leading-none mb-10 lg:mb-16"
       >
         Things I've
         <br />
