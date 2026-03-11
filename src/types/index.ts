@@ -15,6 +15,8 @@ export interface Experience {
   role: string;
   company: string;
   description: string;
+  technologies?: string[];
+  achievements?: string[];
 }
 
 export interface SkillGroup {
