@@ -24,7 +24,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-screen grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden" id="home">
+    <section className="grid grid-cols-1 lg:grid-cols-2 relative overflow-hidden" id="home">
       {/* Background orbs */}
       <div
         className="absolute w-[400px] h-[400px] rounded-full top-[20%] right-[10%] opacity-100 pointer-events-none z-0"
