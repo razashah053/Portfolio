@@ -26,7 +26,7 @@ export default function Contact() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     // Validate required fields
@@ -37,16 +37,31 @@ export default function Contact() {
 
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
-      // Shake animation will be handled by CSS
       return;
     }
 
-    // Simulate form submission
+    // Submit to FormSpree
     setIsSubmitting(true);
-    setTimeout(() => {
-      setShowSuccess(true);
+    try {
+      const response = await fetch('https://formspree.io/f/xkoqryqj', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        setFormData({ name: '', email: '', projectType: '', details: '' });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      alert('Failed to send message. Please try again.');
+    } finally {
       setIsSubmitting(false);
-    }, 1200);
+    }
   };
 
   return (
