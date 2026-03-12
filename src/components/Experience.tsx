@@ -19,7 +19,7 @@ function TimelineItem({ experience, delay = 0 }: TimelineItemProps) {
       initial={{ opacity: 0, y: 40 }}
       animate={isVisible ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay }}
-      className="grid grid-cols-1 lg:grid-cols-[160px_1fr_1fr] gap-6 lg:gap-10 pb-14 lg:pb-20 relative"
+      className="grid grid-cols-1 lg:grid-cols-[160px_1fr] gap-6 lg:gap-10 pb-14 lg:pb-20 relative"
     >
       {/* Vertical line - Desktop */}
       {!isLast && (
@@ -42,9 +42,9 @@ function TimelineItem({ experience, delay = 0 }: TimelineItemProps) {
         {experience.dateRange}
       </div>
 
-      {/* Left Content - Main Info */}
+      {/* Main Content */}
       <div className="lg:pl-8 pl-8">
-        {/* Mobile: Date + Company inline */}
+        {/* Mobile: Date */}
         <div className="lg:hidden flex items-center gap-2 mb-2 flex-wrap">
           <span className="small-text text-muted">{experience.dateRange}</span>
         </div>
@@ -55,7 +55,7 @@ function TimelineItem({ experience, delay = 0 }: TimelineItemProps) {
         
         {/* Technologies */}
         {experience.technologies && (
-          <div className="mb-4 lg:mb-0">
+          <div className="mb-4">
             <div className="small-text text-muted/60 mb-2">Technologies</div>
             <div className="flex flex-wrap gap-2">
               {experience.technologies.map((tech) => (
@@ -69,12 +69,10 @@ function TimelineItem({ experience, delay = 0 }: TimelineItemProps) {
             </div>
           </div>
         )}
-      </div>
-      
-      {/* Right Content - Achievements (Desktop: separate column, Mobile: below) */}
-      <div className="pl-8 lg:border-l lg:border-border">
+
+        {/* Achievements - Mobile and tablet (hidden on xl+ where sidebar shows) */}
         {experience.achievements && (
-          <div>
+          <div className="xl:hidden mt-6">
             <div className="section-label mb-3">Key Achievements</div>
             <ul className="space-y-3">
               {experience.achievements.map((achievement, idx) => (
@@ -111,17 +109,72 @@ export default function Experience() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="section-title mb-12 lg:mb-20"
+        className="section-title mb-12 lg:mb-16"
       >
         Where I've
         <br />
         <span className="text-accent">worked.</span>
       </motion.h2>
 
-      <div className="max-w-full lg:max-w-5xl lg:mx-auto">
-        {experiences.map((exp, index) => (
-          <TimelineItem key={exp.id} experience={exp} delay={index * 0.1} />
-        ))}
+      <div className="grid grid-cols-1 xl:grid-cols-[1fr_400px] gap-8 xl:gap-12">
+        {/* Timeline Section */}
+        <div className="max-w-full">
+          {experiences.map((exp, index) => (
+            <TimelineItem key={exp.id} experience={exp} delay={index * 0.1} />
+          ))}
+        </div>
+
+        {/* Key Highlights Section - Desktop only, sticky */}
+        <motion.div
+          initial={{ opacity: 0, x: 40 }}
+          animate={isVisible ? { opacity: 1, x: 0 } : {}}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="hidden xl:block"
+        >
+          <div className="sticky top-24">
+            <h3 className="section-label mb-6">KEY HIGHLIGHTS</h3>
+            <div className="space-y-4">
+              {[
+                {
+                  icon: '⚡',
+                  name: 'Real-Time Systems',
+                  desc: 'Built WebRTC & Socket.IO communication systems handling concurrent multi-user sessions with sub-100ms latency.',
+                },
+                {
+                  icon: '🔐',
+                  name: 'Auth & Payments',
+                  desc: 'Implemented JWT-based auth systems and Stripe billing integration across enterprise SaaS platforms.',
+                },
+                {
+                  icon: '🚀',
+                  name: 'Containerized Deployments',
+                  desc: 'Dockerized and deployed full-stack apps with Nginx reverse proxy, achieving zero-downtime production releases.',
+                },
+                {
+                  icon: '📊',
+                  name: 'Enterprise Dashboards',
+                  desc: 'Delivered role-based analytics dashboards with complex state management and optimized data fetching pipelines.',
+                },
+              ].map((highlight, index) => (
+                <motion.div
+                  key={highlight.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={isVisible ? { opacity: 1, y: 0 } : {}}
+                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
+                  className="group flex gap-3 p-4 bg-[#0a0a0a] border border-border rounded-lg hover:border-accent/50 transition-all duration-300"
+                >
+                  <div className="text-2xl transition-transform group-hover:scale-110 duration-300 flex-shrink-0">
+                    {highlight.icon}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="font-syne text-sm font-semibold text-text mb-1.5">{highlight.name}</div>
+                    <div className="small-text text-muted leading-relaxed">{highlight.desc}</div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
