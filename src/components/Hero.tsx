@@ -69,7 +69,7 @@ export default function Hero() {
           production-ready applications.
         </motion.p>
 
-        <motion.div variants={item} className="flex gap-4">
+        <motion.div variants={item} className="flex flex-wrap gap-4">
           <a
             href="#projects"
             className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] text-xs uppercase tracking-wider font-medium relative overflow-hidden transition-colors"
@@ -82,6 +82,13 @@ export default function Hero() {
             className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all"
           >
             Get In Touch
+          </a>
+          <a
+            href="/cv.pdf"
+            download="Syed_Raza_CV.pdf"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all"
+          >
+            ↓ Download CV
           </a>
         </motion.div>
 
