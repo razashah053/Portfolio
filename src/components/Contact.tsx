@@ -108,7 +108,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="bg-surface px-6 md:px-12 py-16 relative overflow-hidden"
+      className="bg-surface px-6 md:px-12 py-16 lg:py-24 relative overflow-hidden"
     >
       {/* Background grid */}
       <div

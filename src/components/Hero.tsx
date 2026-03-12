@@ -46,7 +46,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-col justify-center px-4 md:px-6 lg:px-12 py-12 md:py-16 md:pt-24 lg:py-20 lg:pt-32 relative z-10"
+        className="flex flex-col justify-center px-4 md:px-6 lg:px-12 py-16 lg:py-24 relative z-10"
       >
         <motion.div
           variants={item}
@@ -105,7 +105,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex items-center justify-center px-4 md:px-6 lg:px-12 py-12 md:py-16 md:pt-24 lg:py-20 lg:pt-32 relative z-10"
+        className="flex items-center justify-center px-4 md:px-6 lg:px-12 py-16 lg:py-24 relative z-10"
       >
         <div className="bg-surface border border-border rounded-lg w-full max-w-lg overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6),_0_0_0_1px_rgba(255,255,255,0.03)] relative">
           {/* Top gradient line */}
