@@ -50,28 +50,64 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Hamburger Button - Mobile Only */}
-        <button
+        {/* Hamburger Button - Mobile Only - Decreasing Width Lines */}
+        <motion.button
           onClick={toggleMobileMenu}
-          className="lg:hidden flex flex-col gap-1.5 w-7 h-6 cursor-pointer z-50 relative"
+          whileTap={{ scale: 0.9 }}
+          className="lg:hidden flex items-center justify-center w-10 h-10 cursor-pointer z-50 relative bg-subtle border border-border rounded-sm hover:border-accent transition-colors group"
           aria-label="Toggle menu"
         >
-          <motion.span
-            animate={isMobileMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full h-0.5 bg-accent origin-center block"
+          <div className="flex flex-col gap-1 w-5 relative">
+            {/* Top line - Full width */}
+            <motion.span
+              animate={
+                isMobileMenuOpen
+                  ? { rotate: 45, y: 5.5, width: '100%' }
+                  : { rotate: 0, y: 0, width: '100%' }
+              }
+              transition={{ duration: 0.3, ease: [0.645, 0.045, 0.355, 1] }}
+              className="h-[1.5px] bg-accent rounded-full block ml-auto"
+              style={{
+                boxShadow: '0 0 6px rgba(232, 255, 71, 0.3)',
+              }}
+            />
+            {/* Middle line - Medium width (75%) */}
+            <motion.span
+              animate={
+                isMobileMenuOpen
+                  ? { opacity: 0, x: -15 }
+                  : { opacity: 1, x: 0 }
+              }
+              transition={{ duration: 0.2 }}
+              className="h-[1.5px] bg-accent rounded-full block ml-auto"
+              style={{
+                width: '75%',
+                boxShadow: '0 0 6px rgba(232, 255, 71, 0.3)',
+              }}
+            />
+            {/* Bottom line - Short width (50%) */}
+            <motion.span
+              animate={
+                isMobileMenuOpen
+                  ? { rotate: -45, y: -5.5, width: '100%' }
+                  : { rotate: 0, y: 0, width: '50%' }
+              }
+              transition={{ duration: 0.3, ease: [0.645, 0.045, 0.355, 1] }}
+              className="h-[1.5px] bg-accent rounded-full block ml-auto"
+              style={{
+                boxShadow: '0 0 6px rgba(232, 255, 71, 0.3)',
+              }}
+            />
+          </div>
+          
+          {/* Subtle glow effect on hover */}
+          <motion.div
+            className="absolute inset-0 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity"
+            style={{
+              background: 'radial-gradient(circle at center, rgba(232, 255, 71, 0.1), transparent 70%)',
+            }}
           />
-          <motion.span
-            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            transition={{ duration: 0.2 }}
-            className="w-full h-0.5 bg-accent block"
-          />
-          <motion.span
-            animate={isMobileMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
-            transition={{ duration: 0.3 }}
-            className="w-full h-0.5 bg-accent origin-center block"
-          />
-        </button>
+        </motion.button>
       </motion.nav>
 
       {/* Mobile Menu Overlay */}
