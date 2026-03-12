@@ -1,6 +1,7 @@
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import Stats from './components/Stats';
 import Marquee from './components/Marquee';
 import About from './components/About';
 import Projects from './components/Projects';
@@ -26,6 +27,7 @@ function App() {
       <main>
         <Hero />
         <Marquee />
+        <Stats />
         <About />
         <Projects />
         <Experience />

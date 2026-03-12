@@ -98,19 +98,6 @@ export default function Hero() {
             Download CV ↓
           </a>
         </motion.div>
-
-        <motion.div variants={item} className="mt-20 flex gap-12 border-t border-border pt-8">
-          {[
-            { num: '15+', label: 'Projects Shipped' },
-            { num: '3yr', label: 'Experience' },
-            { num: '10+', label: 'Technologies' },
-          ].map((stat) => (
-            <div key={stat.label}>
-              <div className="font-syne text-4xl font-extrabold text-accent leading-none">{stat.num}</div>
-              <div className="small-text text-muted mt-1">{stat.label}</div>
-            </div>
-          ))}
-        </motion.div>
       </motion.div>
 
       {/* Right column - Terminal */}
