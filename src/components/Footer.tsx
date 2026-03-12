@@ -90,7 +90,7 @@ export default function Footer() {
                 <li key={service}>
                   <button
                     onClick={() => scrollToSection('contact')}
-                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block cursor-pointer"
+                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 block cursor-pointer text-left"
                   >
                     {service}
                   </button>
@@ -125,7 +125,7 @@ export default function Footer() {
                 <li key={item.label}>
                   <button
                     onClick={() => scrollToSection(item.href)}
-                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block cursor-pointer"
+                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 block cursor-pointer text-left"
                   >
                     {item.label}
                   </button>
