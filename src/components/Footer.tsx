@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Services Column */}
           <div>
-            <h3 className="text-[11px] uppercase tracking-[0.2em] text-accent font-medium mb-6 relative">
+            <h3 className="section-label font-medium mb-6 relative">
               Services
               <span className="absolute left-0 bottom-0 w-8 h-px bg-accent" />
             </h3>
@@ -114,7 +114,7 @@ export default function Footer() {
 
           {/* Technologies Column */}
           <div>
-            <h3 className="text-[11px] uppercase tracking-[0.2em] text-accent font-medium mb-6 relative">
+            <h3 className="section-label font-medium mb-6 relative">
               Technologies
               <span className="absolute left-0 bottom-0 w-8 h-px bg-accent" />
             </h3>
@@ -129,7 +129,7 @@ export default function Footer() {
 
           {/* Navigate Column */}
           <div>
-            <h3 className="text-[11px] uppercase tracking-[0.2em] text-accent font-medium mb-6 relative">
+            <h3 className="section-label font-medium mb-6 relative">
               Navigate
               <span className="absolute left-0 bottom-0 w-8 h-px bg-accent" />
             </h3>

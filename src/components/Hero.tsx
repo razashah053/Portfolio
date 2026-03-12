@@ -50,13 +50,13 @@ export default function Hero() {
       >
         <motion.div
           variants={item}
-          className="inline-flex items-center gap-2 bg-subtle border border-border px-4 py-1.5 rounded-sm text-[11px] text-accent uppercase tracking-widest mb-10 w-fit"
+          className="inline-flex items-center gap-2 bg-subtle border border-border px-4 py-1.5 rounded-sm section-label mb-10 w-fit"
         >
           <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
           Available for hire
         </motion.div>
 
-        <motion.h1 variants={item} className="font-syne font-extrabold text-[clamp(52px,6vw,88px)] leading-[0.95] tracking-[-3px] mb-8">
+        <motion.h1 variants={item} className="hero-title mb-8">
           <span className="block">Software</span>
           <span className="block text-accent">Engineer</span>
           <span
@@ -70,7 +70,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        <motion.p variants={item} className="max-w-md text-muted text-[13px] leading-relaxed mb-12">
+        <motion.p variants={item} className="max-w-md section-description mb-12">
           Results-driven Software Engineer with 3+ years of experience designing scalable full-stack applications using
           React, Angular, Node.js, and WebRTC. Passionate about building real-time communication systems and
           production-ready applications.
@@ -79,21 +79,21 @@ export default function Hero() {
         <motion.div variants={item} className="flex flex-wrap gap-4">
           <button
             onClick={() => scrollToSection('projects')}
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] text-xs uppercase tracking-wider font-medium relative overflow-hidden transition-colors cursor-pointer"
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] button-text relative overflow-hidden transition-colors cursor-pointer"
           >
             <span className="relative z-10 group-hover:text-white transition-colors">View Work ↗</span>
             <span className="absolute inset-0 bg-accent2 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all cursor-pointer"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all cursor-pointer"
           >
             Get In Touch
           </button>
           <a
             href="/cv.pdf"
             download="Syed_Raza_CV.pdf"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all"
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all"
           >
             Download CV ↓
           </a>
@@ -107,7 +107,7 @@ export default function Hero() {
           ].map((stat) => (
             <div key={stat.label}>
               <div className="font-syne text-4xl font-extrabold text-accent leading-none">{stat.num}</div>
-              <div className="text-[11px] text-muted uppercase tracking-wider mt-1">{stat.label}</div>
+              <div className="small-text text-muted mt-1">{stat.label}</div>
             </div>
           ))}
         </motion.div>
@@ -134,7 +134,7 @@ export default function Hero() {
             <div className="w-[11px] h-[11px] rounded-full bg-[#ff5f57]" />
             <div className="w-[11px] h-[11px] rounded-full bg-[#ffbd2e]" />
             <div className="w-[11px] h-[11px] rounded-full bg-[#28ca42]" />
-            <div className="text-[11px] text-muted mx-auto">raza@portfolio:~</div>
+            <div className="small-text text-muted mx-auto">raza@portfolio:~</div>
           </div>
 
           {/* Terminal body */}

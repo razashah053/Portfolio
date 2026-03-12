@@ -30,7 +30,7 @@ export default function Navbar() {
           <li key={item}>
             <button
               onClick={() => scrollToSection(item.toLowerCase())}
-              className="text-muted text-xs uppercase tracking-wider transition-colors duration-200 hover:text-accent cursor-pointer"
+              className="text-muted button-text transition-colors duration-200 hover:text-accent cursor-pointer"
             >
               {item}
             </button>

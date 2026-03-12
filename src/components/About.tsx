@@ -13,7 +13,7 @@ export default function About() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
-        className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-accent mb-4"
+        className="flex items-center gap-3 section-label mb-4"
       >
         <div className="w-8 h-px bg-accent" />
         About Me
@@ -23,7 +23,7 @@ export default function About() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="font-syne text-[clamp(36px,4vw,56px)] font-extrabold tracking-[-2px] leading-none mb-16"
+        className="section-title mb-16"
       >
         Crafting digital
         <br />
@@ -36,7 +36,7 @@ export default function About() {
           initial={{ opacity: 0, y: 40 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="text-muted text-[13px] leading-relaxed space-y-5"
+          className="section-description space-y-5"
         >
           <p>
             I'm a software engineer with <strong className="text-text font-medium">3 years of experience</strong>{' '}
@@ -66,12 +66,12 @@ export default function About() {
         >
           {skillGroups.map((group) => (
             <div key={group.category}>
-              <div className="text-[11px] uppercase tracking-[0.15em] text-accent mb-3">{group.category}</div>
+              <div className="section-label mb-3">{group.category}</div>
               <div className="flex flex-wrap gap-2">
                 {group.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="pill px-3.5 py-1.5 border border-border text-[11px] text-muted tracking-wider transition-all duration-200 hover:border-accent hover:text-accent hover:bg-[rgba(232,255,71,0.04)]"
+                    className="pill px-3.5 py-1.5 border border-border small-text text-muted transition-all duration-200 hover:border-accent hover:text-accent hover:bg-[rgba(232,255,71,0.04)]"
                   >
                     {skill}
                   </span>

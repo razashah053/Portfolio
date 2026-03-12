@@ -138,7 +138,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] text-accent mb-5">
+          <div className="flex items-center gap-2.5 section-label mb-5">
             <div className="w-8 h-px bg-accent" />
             Contact
           </div>
@@ -204,10 +204,10 @@ export default function Contact() {
                   }}
                 />
                 <span className="text-xl block mb-3">⚡</span>
-                <div className="font-syne text-sm font-bold mb-2.5 text-accent tracking-tight">
+                <div className="font-syne card-title mb-2.5 text-accent tracking-tight">
                   Quick Response Guarantee
                 </div>
-                <p className="text-xs text-muted leading-relaxed">
+                <p className="card-description">
                   I respond to all inquiries within <strong className="text-text font-medium">24 hours</strong>. For
                   urgent projects, I'm available for <strong className="text-text font-medium">same-day consultation calls</strong>. Currently working as{' '}
                   <strong className="text-text font-medium">Full Stack Engineer at ALTEGON</strong>.
@@ -215,7 +215,7 @@ export default function Contact() {
               </div>
 
               {/* Status Badge */}
-              <div className="inline-flex items-center gap-2 bg-[rgba(232,255,71,0.07)] border border-[rgba(232,255,71,0.2)] px-4 py-2 text-[11px] text-accent uppercase tracking-wider mt-7">
+              <div className="inline-flex items-center gap-2 bg-[rgba(232,255,71,0.07)] border border-[rgba(232,255,71,0.2)] px-4 py-2 section-label mt-7">
                 <div className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
                 Available for new projects
               </div>
@@ -232,8 +232,8 @@ export default function Contact() {
             {!showSuccess ? (
               <>
                 <div className="mb-10">
-                  <div className="font-syne text-[22px] font-bold tracking-tight mb-2">Send a Message</div>
-                  <div className="text-xs text-muted">
+                  <div className="font-syne card-title mb-2">Send a Message</div>
+                  <div className="small-text text-muted">
                     Tell me about your project and I'll get back to you shortly.
                   </div>
                 </div>
@@ -254,7 +254,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         className={`w-full bg-[#0a0a0a] border ${
                           errors.name ? 'border-red-500 animate-shake' : 'border-border'
-                        } text-text font-mono text-[13px] px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
+                        } text-text font-mono body-text px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                       />
                     </FormGroup>
 
@@ -272,7 +272,7 @@ export default function Contact() {
                         onChange={handleInputChange}
                         className={`w-full bg-[#0a0a0a] border ${
                           errors.email ? 'border-red-500 animate-shake' : 'border-border'
-                        } text-text font-mono text-[13px] px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
+                        } text-text font-mono body-text px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                       />
                     </FormGroup>
                   </div>
@@ -285,7 +285,7 @@ export default function Contact() {
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className={`w-full bg-[#0a0a0a] border border-border ${
                           formData.projectType ? 'text-text' : 'text-[#555]'
-                        } font-mono text-[13px] px-4 py-3.5 pr-10 outline-none transition-all text-left cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] hover:border-[#333]`}
+                        } font-mono body-text px-4 py-3.5 pr-10 outline-none transition-all text-left cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] hover:border-[#333]`}
                       >
                         {formData.projectType 
                           ? projectTypes.find(pt => pt.value === formData.projectType)?.label 
@@ -318,7 +318,7 @@ export default function Contact() {
                                 key={type.value}
                                 type="button"
                                 onClick={() => handleProjectTypeSelect(type.value)}
-                                className={`w-full px-4 py-3 text-left font-mono text-[13px] transition-all border-b border-[#1a1a1a] last:border-b-0 ${
+                                className={`w-full px-4 py-3 text-left font-mono body-text transition-all border-b border-[#1a1a1a] last:border-b-0 ${
                                   formData.projectType === type.value
                                     ? 'bg-[rgba(232,255,71,0.15)] text-accent'
                                     : 'text-text hover:bg-[rgba(232,255,71,0.08)] hover:text-accent'
@@ -350,7 +350,7 @@ export default function Contact() {
                           placeholder="e.g., Real-time collaboration tool, Blockchain integration, IoT platform..."
                           value={customProjectType}
                           onChange={(e) => setCustomProjectType(e.target.value)}
-                          className="w-full bg-[#0a0a0a] border border-accent text-text font-mono text-[13px] px-4 py-3.5 outline-none transition-all focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] placeholder:text-[#555]"
+                          className="w-full bg-[#0a0a0a] border border-accent text-text font-mono body-text px-4 py-3.5 outline-none transition-all focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] placeholder:text-[#555]"
                         />
                       </motion.div>
                     )}
@@ -369,7 +369,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       className={`w-full bg-[#0a0a0a] border ${
                         errors.details ? 'border-red-500 animate-shake' : 'border-border'
-                      } text-text font-mono text-[13px] px-4 py-3.5 outline-none transition-all resize-vertical min-h-[140px] leading-relaxed focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
+                      } text-text font-mono body-text px-4 py-3.5 outline-none transition-all resize-vertical min-h-[140px] leading-relaxed focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                     />
                   </FormGroup>
 
@@ -385,7 +385,7 @@ export default function Contact() {
                     <span className="absolute inset-0 bg-accent2 -translate-x-full transition-transform duration-400 group-hover:translate-x-0" />
                   </button>
 
-                  <p className="mt-4 text-[11px] text-muted text-center tracking-wide">
+                  <p className="mt-4 small-text text-muted text-center">
                     No spam. Your info stays <span className="text-accent">private</span> — always.
                   </p>
                 </form>
@@ -414,7 +414,7 @@ export default function Contact() {
                 <div className="font-syne text-2xl font-extrabold tracking-tight mb-3 text-accent">
                   Message Sent!
                 </div>
-                <p className="text-[13px] text-muted max-w-xs leading-relaxed">
+                <p className="section-description max-w-xs">
                   Thanks for reaching out. I'll be in touch within 24 hours. Looking forward to working together.
                 </p>
               </div>
@@ -439,18 +439,18 @@ function InfoBlock({ label, value, href, target }: InfoBlockProps) {
       <div
         className="absolute left-[-44px] top-0 bottom-0 w-0.5 bg-accent scale-y-0 origin-bottom transition-transform duration-350 group-hover:scale-y-100"
       />
-      <div className="text-[10px] uppercase tracking-[0.2em] text-muted mb-1.5">{label}</div>
+      <div className="small-text text-muted mb-1.5">{label}</div>
       {href ? (
         <a
           href={href}
           target={target}
           rel={target === '_blank' ? 'noopener noreferrer' : undefined}
-          className="text-[13px] text-text block transition-colors hover:text-accent break-all"
+          className="body-text text-text block transition-colors hover:text-accent break-all"
         >
           {value}
         </a>
       ) : (
-        <span className="text-[13px] text-text block break-all">{value}</span>
+        <span className="body-text text-text block break-all">{value}</span>
       )}
     </div>
   );
@@ -468,7 +468,7 @@ interface FormGroupProps {
 function FormGroup({ label, required, error, children }: FormGroupProps) {
   return (
     <div className="flex flex-col gap-2 mb-5">
-      <label className="text-[11px] uppercase tracking-[0.15em] text-muted flex items-center gap-1">
+      <label className="small-text text-muted flex items-center gap-1">
         {label}
         {required && <span className="text-accent text-sm">*</span>}
       </label>

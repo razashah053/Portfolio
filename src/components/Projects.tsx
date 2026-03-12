@@ -34,27 +34,27 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
               {project.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[10px] uppercase tracking-[0.15em] text-accent bg-[rgba(232,255,71,0.08)] px-2.5 py-1 rounded-sm"
+                  className="tag-label bg-[rgba(232,255,71,0.08)] px-2.5 py-1 rounded-sm"
                 >
                   {tag}
                 </span>
               ))}
             </div>
 
-            <h3 className="font-syne text-xl lg:text-[22px] font-bold mb-2 lg:mb-3 tracking-tight">{project.name}</h3>
-            <p className="text-muted text-sm lg:text-base leading-relaxed mb-6 lg:mb-8">{project.description}</p>
+            <h3 className="card-title mb-2 lg:mb-3">{project.name}</h3>
+            <p className="card-description mb-6 lg:mb-8">{project.description}</p>
 
             <div className="flex gap-5">
               <a
                 href={project.liveUrl}
-                className="text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent flex items-center gap-2"
+                className="small-text text-muted transition-colors hover:text-accent flex items-center gap-2"
               >
                 <ExternalLink className="w-3 h-3" />
                 Live Demo
               </a>
               <a
                 href={project.githubUrl}
-                className="text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent flex items-center gap-2"
+                className="small-text text-muted transition-colors hover:text-accent flex items-center gap-2"
               >
                 <Github className="w-3 h-3" />
                 GitHub
@@ -109,26 +109,26 @@ function ProjectCard({ project, delay = 0 }: ProjectCardProps) {
         {project.tags.map((tag) => (
           <span
             key={tag}
-            className="text-[10px] uppercase tracking-[0.15em] text-accent bg-[rgba(232,255,71,0.08)] px-2.5 py-1 rounded-sm"
+            className="tag-label bg-[rgba(232,255,71,0.08)] px-2.5 py-1 rounded-sm"
           >
             {tag}
           </span>
         ))}
       </div>
 
-      <h3 className="font-syne text-xl lg:text-[22px] font-bold mb-2 lg:mb-3 tracking-tight">{project.name}</h3>
-      <p className="text-muted text-sm lg:text-base leading-relaxed mb-4 lg:mb-8 line-clamp-3 lg:line-clamp-none">{project.description}</p>
+      <h3 className="card-title mb-2 lg:mb-3">{project.name}</h3>
+      <p className="card-description mb-4 lg:mb-8 line-clamp-3 lg:line-clamp-none">{project.description}</p>
 
       <div className="flex gap-5">
         <a
           href={project.liveUrl}
-          className="text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
+          className="small-text text-muted transition-colors hover:text-accent"
         >
           ↗ Live Demo
         </a>
         <a
           href={project.githubUrl}
-          className="text-[11px] uppercase tracking-wider text-muted transition-colors hover:text-accent"
+          className="small-text text-muted transition-colors hover:text-accent"
         >
           ⌥ GitHub
         </a>
@@ -147,7 +147,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7 }}
-        className="flex items-center gap-3 text-[11px] uppercase tracking-[0.2em] text-accent mb-4"
+        className="flex items-center gap-3 section-label mb-4"
       >
         <div className="w-8 h-px bg-accent" />
         Selected Work
@@ -157,7 +157,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
         transition={{ duration: 0.7, delay: 0.1 }}
-        className="font-syne text-[clamp(36px,4vw,56px)] font-extrabold tracking-[-2px] leading-none mb-10 lg:mb-16"
+        className="section-title mb-10 lg:mb-16"
       >
         Things I've
         <br />
