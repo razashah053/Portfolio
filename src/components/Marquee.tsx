@@ -1,17 +1,20 @@
 export default function Marquee() {
   const technologies = [
     'React',
-    'Next.js',
+    'Next.js',  
+    'Angular',
     'TypeScript',
     'Node.js',
-    'Go',
-    'PostgreSQL',
+    'Express',
+    'WebRTC',
+    'Socket.IO',
+    'MySQL',
+    'MongoDB',
     'Redis',
     'Docker',
-    'Kubernetes',
     'AWS',
-    'GraphQL',
-    'REST APIs',
+    'Stripe',
+    'Firebase',
   ];
 
   // Duplicate array for seamless loop

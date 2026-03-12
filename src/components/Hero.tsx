@@ -64,7 +64,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p variants={item} className="max-w-md text-muted text-[13px] leading-relaxed mb-12">
-          Results-driven Software Engineer with 3 years of experience designing scalable full-stack applications using
+          Results-driven Software Engineer with 3+ years of experience designing scalable full-stack applications using
           React, Angular, Node.js, and WebRTC. Passionate about building real-time communication systems and
           production-ready applications.
         </motion.p>
@@ -88,7 +88,7 @@ export default function Hero() {
         <motion.div variants={item} className="mt-20 flex gap-12 border-t border-border pt-8">
           {[
             { num: '15+', label: 'Projects Shipped' },
-            { num: '3yr', label: 'Experience' },
+            { num: '3+ yrs', label: 'Experience' },
             { num: '10+', label: 'Technologies' },
           ].map((stat) => (
             <div key={stat.label}>
