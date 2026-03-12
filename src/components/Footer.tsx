@@ -40,9 +40,9 @@ export default function Footer() {
     <footer className="bg-[#0a0a0a] border-t border-border">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
         {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 lg:gap-8 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 lg:gap-8 mb-12">
           {/* Brand Section */}
-          <div className="max-w-md">
+          <div className="w-full md:max-w-md sm:col-span-2 md:col-span-3 lg:col-span-1">
             <div className="font-syne text-3xl font-extrabold mb-6">
               SR<span className="text-accent">.</span>
             </div>
@@ -128,7 +128,7 @@ export default function Footer() {
           </div>
 
           {/* Navigate Column */}
-          <div>
+          <div className="hidden md:block">
             <h3 className="section-label font-medium mb-6 relative">
               Navigate
               <span className="absolute left-0 bottom-0 w-8 h-px bg-accent" />
