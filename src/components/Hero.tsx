@@ -46,7 +46,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="show"
-        className="flex flex-col justify-center px-4 sm:px-6 lg:px-12 py-12 pt-20 sm:py-16 sm:pt-24 lg:py-20 lg:pt-32 relative z-10"
+        className="flex flex-col justify-center px-4 md:px-6 lg:px-12 py-12 md:py-16 md:pt-24 lg:py-20 lg:pt-32 relative z-10"
       >
         <motion.div
           variants={item}
@@ -70,7 +70,7 @@ export default function Hero() {
           </span>
         </motion.h1>
 
-        <motion.p variants={item} className="max-w-full md:max-w-md section-description mb-12">
+        <motion.p variants={item} className="max-w-full  section-description mb-12">
           Results-driven Software Engineer with 3+ years of experience designing scalable full-stack applications using
           React, Angular, Node.js, and WebRTC. Passionate about building real-time communication systems and
           production-ready applications.
@@ -102,7 +102,7 @@ export default function Hero() {
         <motion.div variants={item} className="mt-20 flex gap-12 border-t border-border pt-8">
           {[
             { num: '15+', label: 'Projects Shipped' },
-            { num: '3+ yrs', label: 'Experience' },
+            { num: '3yr', label: 'Experience' },
             { num: '10+', label: 'Technologies' },
           ].map((stat) => (
             <div key={stat.label}>
@@ -118,7 +118,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="flex items-center justify-center px-4 sm:px-6 lg:px-12 py-8 pt-8 sm:py-16 sm:pt-24 lg:py-20 lg:pt-32 relative z-10"
+        className="flex items-center justify-center px-4 md:px-6 lg:px-12 py-12 md:py-16 md:pt-24 lg:py-20 lg:pt-32 relative z-10"
       >
         <div className="bg-surface border border-border rounded-lg w-full max-w-lg overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.6),_0_0_0_1px_rgba(255,255,255,0.03)] relative">
           {/* Top gradient line */}
