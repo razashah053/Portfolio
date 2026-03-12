@@ -7,7 +7,7 @@ export const projects: Project[] = [
     tags: ['Angular', 'Node.js', 'WebRTC', 'Stripe'],
     name: 'Altegon Meet',
     description: 'Full-stack video meeting platform with Node.js/Express backend and Angular frontend. Implemented secure auth, Stripe payments, meeting management, calendar integrations, recordings (FFmpeg), file uploads, and reporting with Docker deployment.',
-    liveUrl: '#',
+    liveUrl: 'https://qmeet.altegon.com/',
     githubUrl: '#',
     featured: true,
   },
@@ -26,7 +26,7 @@ export const projects: Project[] = [
     tags: ['Angular', 'Node.js', 'Stripe', 'WebSocket'],
     name: 'Friendly Faces',
     description: 'Full-stack platform with Angular and Node.js supporting authentication, Stripe subscriptions, real-time chat, booking workflows, and email notifications. Swagger-documented REST APIs with modular backend architecture.',
-    liveUrl: '#',
+    liveUrl: 'https://web.javelafriends.com',
     githubUrl: '#',
   },
   {
@@ -35,7 +35,7 @@ export const projects: Project[] = [
     tags: ['React', 'Node.js', 'WebSocket', 'Redis'],
     name: "What's The Vibe",
     description: 'Real-time web app using Node.js/Express REST APIs and TypeScript/React frontend. Implemented JWT authentication, room/user management, and real-time communication via WebSocket with Redis integration.',
-    liveUrl: '#',
+    liveUrl: 'https://whatsthevibe.co',
     githubUrl: '#',
   },
   {
@@ -44,7 +44,7 @@ export const projects: Project[] = [
     tags: ['React', 'WebRTC', 'Docker', 'Nginx'],
     name: 'Qryde',
     description: 'React-based real-time video calling web app with complete meeting flow. Integrated WebRTC library with socket-based signaling for reliable call coordination, containerized with Docker + Nginx for production deployment.',
-    liveUrl: '#',
+    liveUrl: 'https://qr-video.qryde.net',
     githubUrl: '#',
   },
 ];
