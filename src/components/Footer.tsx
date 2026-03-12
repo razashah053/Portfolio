@@ -5,6 +5,13 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const services = [
     'Full-Stack Development',
     'Video Communication Platforms',
@@ -22,11 +29,11 @@ export default function Footer() {
   ];
 
   const navigation = [
-    { label: 'Home', href: '#home' },
-    { label: 'About', href: '#about' },
-    { label: 'Projects', href: '#projects' },
-    { label: 'Experience', href: '#experience' },
-    { label: 'Contact', href: '#contact' },
+    { label: 'Home', href: 'home' },
+    { label: 'About', href: 'about' },
+    { label: 'Projects', href: 'projects' },
+    { label: 'Experience', href: 'experience' },
+    { label: 'Contact', href: 'contact' },
   ];
 
   return (
@@ -81,12 +88,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {services.map((service) => (
                 <li key={service}>
-                  <a
-                    href="#contact"
-                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block"
+                  <button
+                    onClick={() => scrollToSection('contact')}
+                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block cursor-pointer"
                   >
                     {service}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
@@ -116,12 +123,12 @@ export default function Footer() {
             <ul className="space-y-3">
               {navigation.map((item) => (
                 <li key={item.label}>
-                  <a
-                    href={item.href}
-                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block"
+                  <button
+                    onClick={() => scrollToSection(item.href)}
+                    className="text-muted text-sm transition-colors hover:text-accent hover:translate-x-1 inline-block cursor-pointer"
                   >
                     {item.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>

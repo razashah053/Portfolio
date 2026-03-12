@@ -4,6 +4,13 @@ import { useScrolled } from '../hooks/useScrolled';
 export default function Navbar() {
   const { scrolled } = useScrolled();
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -15,18 +22,18 @@ export default function Navbar() {
           : 'border-b border-transparent'
       }`}
     >
-      <a href="#" className="font-syne font-extrabold text-lg text-text tracking-tight">
+      <button onClick={() => scrollToSection('home')} className="font-syne font-extrabold text-lg text-text tracking-tight cursor-pointer">
         SR<span className="text-accent">.</span>
-      </a>
+      </button>
       <ul className="flex gap-10 list-none">
         {['About', 'Projects', 'Experience', 'Contact'].map((item) => (
           <li key={item}>
-            <a
-              href={`#${item.toLowerCase()}`}
-              className="text-muted text-xs uppercase tracking-wider transition-colors duration-200 hover:text-accent"
+            <button
+              onClick={() => scrollToSection(item.toLowerCase())}
+              className="text-muted text-xs uppercase tracking-wider transition-colors duration-200 hover:text-accent cursor-pointer"
             >
               {item}
-            </a>
+            </button>
           </li>
         ))}
       </ul>

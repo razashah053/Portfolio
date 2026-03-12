@@ -1,6 +1,13 @@
 import { motion } from 'framer-motion';
 
 export default function Hero() {
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -70,25 +77,25 @@ export default function Hero() {
         </motion.p>
 
         <motion.div variants={item} className="flex flex-wrap gap-4">
-          <a
-            href="#projects"
-            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] text-xs uppercase tracking-wider font-medium relative overflow-hidden transition-colors"
+          <button
+            onClick={() => scrollToSection('projects')}
+            className="group inline-flex items-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] text-xs uppercase tracking-wider font-medium relative overflow-hidden transition-colors cursor-pointer"
           >
             <span className="relative z-10 group-hover:text-white transition-colors">View Work ↗</span>
             <span className="absolute inset-0 bg-accent2 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all"
+          </button>
+          <button
+            onClick={() => scrollToSection('contact')}
+            className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all cursor-pointer"
           >
             Get In Touch
-          </a>
+          </button>
           <a
             href="/cv.pdf"
             download="Syed_Raza_CV.pdf"
             className="inline-flex items-center gap-2.5 px-7 py-3.5 bg-transparent text-text text-xs uppercase tracking-wider border border-border hover:border-accent hover:text-accent transition-all"
           >
-            ↓ Download CV
+            Download CV ↓
           </a>
         </motion.div>
 
