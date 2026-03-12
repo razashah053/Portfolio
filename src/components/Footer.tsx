@@ -70,7 +70,9 @@ export default function Footer() {
                 <Linkedin className="w-4 h-4" />
               </a>
               <a
-                href="mailto:syed.razaurrehman053@gmail.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=syed.razaurrehman053@gmail.com"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 border border-border flex items-center justify-center text-muted transition-all hover:border-accent hover:text-accent hover:bg-[rgba(232,255,71,0.05)]"
                 aria-label="Email"
               >

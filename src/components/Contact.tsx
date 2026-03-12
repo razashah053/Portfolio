@@ -167,7 +167,7 @@ export default function Contact() {
             className="bg-[#0a0a0a] p-11"
           >
             <div className="flex flex-col">
-              <InfoBlock label="Email" value="syed.razaurrehman053@gmail.com" href="mailto:syed.razaurrehman053@gmail.com" />
+              <InfoBlock label="Email" value="syed.razaurrehman053@gmail.com" href="https://mail.google.com/mail/?view=cm&fs=1&to=syed.razaurrehman053@gmail.com" target="_blank" />
               <InfoBlock label="Phone" value="+92-315-5783100" href="tel:+923155783100" />
               <InfoBlock label="Location" value="Islamabad, Pakistan" />
               <InfoBlock
