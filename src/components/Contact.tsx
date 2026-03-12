@@ -53,7 +53,7 @@ export default function Contact() {
     <section
       id="contact"
       ref={sectionRef}
-      className="bg-surface px-6 md:px-12 py-32 relative overflow-hidden"
+      className="bg-surface px-6 md:px-12 py-16 relative overflow-hidden"
     >
       {/* Background grid */}
       <div
@@ -81,7 +81,7 @@ export default function Contact() {
           initial={{ opacity: 0, y: 32 }}
           animate={isVisible ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-20"
+          className="mb-12"
         >
           <div className="flex items-center gap-2.5 text-[11px] uppercase tracking-[0.2em] text-accent mb-5">
             <div className="w-8 h-px bg-accent" />

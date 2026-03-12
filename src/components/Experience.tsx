@@ -96,7 +96,7 @@ export default function Experience() {
   const { isVisible } = useScrollReveal(sectionRef);
 
   return (
-    <section id="experience" ref={sectionRef} className="px-6 lg:px-12 py-20 lg:py-32 bg-surface">
+    <section id="experience" ref={sectionRef} className="px-6 lg:px-12 py-12 lg:py-32 bg-surface">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}

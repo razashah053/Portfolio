@@ -31,7 +31,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-[#0a0a0a] border-t border-border">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-20">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-20">
         {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr] gap-12 lg:gap-8 mb-12">
           {/* Brand Section */}
@@ -134,7 +134,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
           <div className="text-muted text-center md:text-left">
-            © 2024 <span className="text-accent font-medium">Syed Raza</span>. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-accent font-medium">Syed Raza</span>. All rights reserved.
           </div>
           <div className="text-muted text-center">
             Designed & built by <span className="text-accent font-medium">Syed Raza Ur Rehman Shah</span>

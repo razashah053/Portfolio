@@ -18,7 +18,7 @@ export default function Marquee() {
   const duplicatedTechnologies = [...technologies, ...technologies];
 
   return (
-    <div className="border-t border-b border-border overflow-hidden py-4 bg-subtle">
+    <div className="border-t border-b border-border overflow-hidden py-2 lg:py-4 bg-subtle">
       <div className="flex gap-0 animate-marquee whitespace-nowrap">
         {duplicatedTechnologies.map((tech, index) => (
           <div key={index} className="flex items-center gap-4 px-8 text-[11px] uppercase tracking-[0.2em] text-muted">

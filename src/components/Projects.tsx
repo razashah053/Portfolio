@@ -142,7 +142,7 @@ export default function Projects() {
   const { isVisible } = useScrollReveal(sectionRef);
 
   return (
-    <section id="projects" ref={sectionRef} className="bg-surface px-6 lg:px-12 py-20 lg:py-32">
+    <section id="projects" ref={sectionRef} className="bg-surface px-6 lg:px-12 py-12 lg:py-32">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={isVisible ? { opacity: 1, y: 0 } : {}}
