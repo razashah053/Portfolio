@@ -13,17 +13,50 @@ export default function Contact() {
     details: '',
   });
   
+  const [customProjectType, setCustomProjectType] = useState('');
+  const [showCustomInput, setShowCustomInput] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  const projectTypes = [
+    { value: 'mern', label: 'MERN Stack Application' },
+    { value: 'mean', label: 'MEAN Stack (Angular)' },
+    { value: 'webrtc', label: 'Video Conferencing / WebRTC' },
+    { value: 'realtime', label: 'Real-time Chat / Socket.IO' },
+    { value: 'ecommerce', label: 'E-commerce / Payment Integration' },
+    { value: 'dashboard', label: 'Admin Dashboard / Analytics' },
+    { value: 'api', label: 'REST / GraphQL API' },
+    { value: 'custom', label: '✨ Custom Project Type' },
+  ];
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    
+    if (name === 'projectType') {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+      setShowCustomInput(value === 'custom');
+      if (value !== 'custom') {
+        setCustomProjectType('');
+      }
+    } else {
+      setFormData((prev) => ({ ...prev, [name]: value }));
+    }
+    
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: false }));
     }
+  };
+
+  const handleProjectTypeSelect = (value: string) => {
+    setFormData((prev) => ({ ...prev, projectType: value }));
+    setShowCustomInput(value === 'custom');
+    if (value !== 'custom') {
+      setCustomProjectType('');
+    }
+    setIsDropdownOpen(false);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -43,17 +76,24 @@ export default function Contact() {
     // Submit to FormSpree
     setIsSubmitting(true);
     try {
+      const submissionData = {
+        ...formData,
+        projectType: formData.projectType === 'custom' ? customProjectType : formData.projectType,
+      };
+      
       const response = await fetch('https://formspree.io/f/xkoqryqj', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       if (response.ok) {
         setShowSuccess(true);
         setFormData({ name: '', email: '', projectType: '', details: '' });
+        setCustomProjectType('');
+        setShowCustomInput(false);
       } else {
         alert('Failed to send message. Please try again.');
       }
@@ -209,7 +249,7 @@ export default function Contact() {
                         type="email"
                         id="email"
                         name="email"
-                        placeholder="you@example.com"
+                        placeholder="raza@gmail.com"
                         value={formData.email}
                         onChange={handleInputChange}
                         className={`w-full bg-[#0a0a0a] border ${
@@ -221,31 +261,81 @@ export default function Contact() {
 
                   <FormGroup label="Project Type">
                     <div className="relative">
-                      <select
-                        id="projectType"
-                        name="projectType"
-                        value={formData.projectType}
-                        onChange={handleInputChange}
+                      {/* Custom Dropdown Button */}
+                      <button
+                        type="button"
+                        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         className={`w-full bg-[#0a0a0a] border border-border ${
-                          formData.projectType ? 'text-text' : 'text-[#333]'
-                        } font-mono text-[13px] px-4 py-3.5 outline-none transition-all appearance-none cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
+                          formData.projectType ? 'text-text' : 'text-[#555]'
+                        } font-mono text-[13px] px-4 py-3.5 pr-10 outline-none transition-all text-left cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] hover:border-[#333]`}
                       >
-                        <option value="" disabled>
-                          e.g., MERN Stack App, AI Integration, E-commerce Platform
-                        </option>
-                        <option value="mern">MERN Stack Application</option>
-                        <option value="ai">AI / ML Integration</option>
-                        <option value="ecommerce">E-commerce Platform</option>
-                        <option value="api">REST / GraphQL API</option>
-                        <option value="mobile">React Native / Mobile App</option>
-                        <option value="dashboard">Admin Dashboard / Analytics</option>
-                        <option value="devops">DevOps / Cloud Infrastructure</option>
-                        <option value="other">Other</option>
-                      </select>
-                      <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-muted text-xs">
-                        ▾
+                        {formData.projectType 
+                          ? projectTypes.find(pt => pt.value === formData.projectType)?.label 
+                          : 'Select your project type'}
+                      </button>
+                      
+                      {/* Dropdown Arrow */}
+                      <div className={`absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-accent text-sm transition-transform ${isDropdownOpen ? 'rotate-180' : ''}`}>
+                        ▼
                       </div>
+                      
+                      {/* Custom Dropdown Menu */}
+                      {isDropdownOpen && (
+                        <>
+                          {/* Backdrop to close dropdown */}
+                          <div 
+                            className="fixed inset-0 z-10" 
+                            onClick={() => setIsDropdownOpen(false)}
+                          />
+                          
+                          <motion.div
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                            transition={{ duration: 0.2 }}
+                            className="absolute top-full left-0 right-0 mt-1 bg-[#0a0a0a] border border-border z-20 max-h-[280px] overflow-y-auto shadow-xl"
+                          >
+                            {projectTypes.map((type) => (
+                              <button
+                                key={type.value}
+                                type="button"
+                                onClick={() => handleProjectTypeSelect(type.value)}
+                                className={`w-full px-4 py-3 text-left font-mono text-[13px] transition-all border-b border-[#1a1a1a] last:border-b-0 ${
+                                  formData.projectType === type.value
+                                    ? 'bg-[rgba(232,255,71,0.15)] text-accent'
+                                    : 'text-text hover:bg-[rgba(232,255,71,0.08)] hover:text-accent'
+                                } ${type.value === 'custom' ? 'font-semibold' : ''}`}
+                              >
+                                {type.label}
+                              </button>
+                            ))}
+                          </motion.div>
+                        </>
+                      )}
                     </div>
+                    
+                    {/* Custom Project Type Input */}
+                    {showCustomInput && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0, marginTop: 0 }}
+                        animate={{ opacity: 1, height: 'auto', marginTop: 12 }}
+                        exit={{ opacity: 0, height: 0, marginTop: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex items-start gap-2 mb-2">
+                          <span className="text-xs text-accent">✨</span>
+                          <span className="text-xs text-muted">Describe your custom project in detail below</span>
+                        </div>
+                        <input
+                          type="text"
+                          placeholder="e.g., Real-time collaboration tool, Blockchain integration, IoT platform..."
+                          value={customProjectType}
+                          onChange={(e) => setCustomProjectType(e.target.value)}
+                          className="w-full bg-[#0a0a0a] border border-accent text-text font-mono text-[13px] px-4 py-3.5 outline-none transition-all focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] placeholder:text-[#555]"
+                        />
+                      </motion.div>
+                    )}
                   </FormGroup>
 
                   <FormGroup
