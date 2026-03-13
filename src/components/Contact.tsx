@@ -314,7 +314,7 @@ export default function Contact() {
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                         aria-label="Select project type"
                         aria-haspopup="listbox"
-                        aria-expanded={String(isDropdownOpen)}
+                        aria-expanded={isDropdownOpen}
                         className={`w-full bg-[#0a0a0a] border border-border ${
                           formData.projectType ? 'text-text' : 'text-[#555]'
                         } font-mono body-text px-4 py-3.5 pr-10 outline-none transition-all text-left cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] hover:border-[#333]`}
