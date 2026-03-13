@@ -1,13 +1,23 @@
+import { lazy, Suspense } from 'react';
 import Cursor from './components/Cursor';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import Stats from './components/Stats';
 import Marquee from './components/Marquee';
-import About from './components/About';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+// Lazy load below-the-fold components
+const Stats = lazy(() => import('./components/Stats'));
+const About = lazy(() => import('./components/About'));
+const Projects = lazy(() => import('./components/Projects'));
+const Experience = lazy(() => import('./components/Experience'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+
+// Loading fallback component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center py-20">
+    <div className="w-8 h-8 border-2 border-accent border-t-transparent rounded-full animate-spin" />
+  </div>
+);
 
 function App() {
   return (
@@ -27,14 +37,18 @@ function App() {
       <main>
         <Hero />
         <Marquee />
-        <Stats />
-        <About />
-        <Projects />
-        <Experience />
-        <Contact />
+        <Suspense fallback={<LoadingFallback />}>
+          <Stats />
+          <About />
+          <Projects />
+          <Experience />
+          <Contact />
+        </Suspense>
       </main>
 
-      <Footer />
+      <Suspense fallback={<LoadingFallback />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

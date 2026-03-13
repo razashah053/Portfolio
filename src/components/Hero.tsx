@@ -91,7 +91,7 @@ export default function Hero() {
             Get In Touch
           </button>
           <a
-            href="/cv.pdf"
+            href="/Syed_Raza_CV.pdf"
             download="Syed_Raza_CV.pdf"
             className="flex items-center justify-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all sm:col-span-2 md:col-span-1"
           >

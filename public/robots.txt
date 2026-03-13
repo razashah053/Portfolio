@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /api/
+Disallow: /_next/
 
-Sitemap: /sitemap.xml
+# Crawl-delay
+Crawl-delay: 0
+
+# Sitemap
+Sitemap: https://syed-raza.vercel.app/sitemap.xml
