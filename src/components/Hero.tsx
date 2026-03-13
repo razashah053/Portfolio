@@ -79,21 +79,24 @@ export default function Hero() {
         <motion.div variants={item} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           <button
             onClick={() => scrollToSection('projects')}
-            className="group flex items-center justify-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] button-text relative overflow-hidden transition-colors cursor-pointer"
+            aria-label="View my portfolio projects"
+            className="group flex items-center justify-center gap-2.5 px-7 py-3.5 bg-accent text-[#0a0a0a] button-text relative overflow-hidden transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
           >
             <span className="relative z-10 group-hover:text-white transition-colors">View Work ↗</span>
             <span className="absolute inset-0 bg-accent2 -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
           </button>
           <button
             onClick={() => scrollToSection('contact')}
-            className="flex items-center justify-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all cursor-pointer"
+            aria-label="Contact me for project inquiries"
+            className="flex items-center justify-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
           >
             Get In Touch
           </button>
           <a
             href="/Syed_Raza_CV.pdf"
             download="Syed_Raza_CV.pdf"
-            className="flex items-center justify-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all sm:col-span-2 md:col-span-1"
+            aria-label="Download my CV as PDF"
+            className="flex items-center justify-center gap-2.5 px-7 py-3.5 bg-transparent text-text button-text border border-border hover:border-accent hover:text-accent transition-all sm:col-span-2 md:col-span-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#0a0a0a]"
           >
             Download CV ↓
           </a>

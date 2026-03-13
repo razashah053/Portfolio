@@ -1,4 +1,4 @@
-import { useState, useRef, FormEvent } from 'react';
+import { useState, useRef, FormEvent, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollReveal } from '../hooks/useScrollReveal';
 
@@ -19,6 +19,17 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+  // Auto-clear errors after 4 seconds
+  useEffect(() => {
+    if (Object.keys(errors).length > 0) {
+      const timer = setTimeout(() => {
+        setErrors({});
+      }, 4000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [errors]);
   
   const projectTypes = [
     { value: 'mern', label: 'MERN Stack Application' },
@@ -243,7 +254,6 @@ export default function Contact() {
                     <FormGroup
                       label="Your Name"
                       required
-                      error={errors.name}
                     >
                       <input
                         type="text"
@@ -252,16 +262,25 @@ export default function Contact() {
                         placeholder="Syed Raza"
                         value={formData.name}
                         onChange={handleInputChange}
+                        aria-label="Your full name"
+                        aria-required="true"
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-describedby={errors.name ? 'name-error' : undefined}
+                        autoComplete="name"
                         className={`w-full bg-[#0a0a0a] border ${
                           errors.name ? 'border-red-500 animate-shake' : 'border-border'
                         } text-text font-mono body-text px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                       />
+                      {errors.name && (
+                        <span id="name-error" className="text-red-500 text-xs mt-1 block" role="alert">
+                          Name is required
+                        </span>
+                      )}
                     </FormGroup>
 
                     <FormGroup
                       label="Email Address"
                       required
-                      error={errors.email}
                     >
                       <input
                         type="email"
@@ -270,10 +289,20 @@ export default function Contact() {
                         placeholder="raza@gmail.com"
                         value={formData.email}
                         onChange={handleInputChange}
+                        aria-label="Your email address"
+                        aria-required="true"
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        autoComplete="email"
                         className={`w-full bg-[#0a0a0a] border ${
                           errors.email ? 'border-red-500 animate-shake' : 'border-border'
                         } text-text font-mono body-text px-4 py-3.5 outline-none transition-all focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                       />
+                      {errors.email && (
+                        <span id="email-error" className="text-red-500 text-xs mt-1 block" role="alert">
+                          Valid email is required
+                        </span>
+                      )}
                     </FormGroup>
                   </div>
 
@@ -283,6 +312,9 @@ export default function Contact() {
                       <button
                         type="button"
                         onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                        aria-label="Select project type"
+                        aria-haspopup="listbox"
+                        aria-expanded={String(isDropdownOpen)}
                         className={`w-full bg-[#0a0a0a] border border-border ${
                           formData.projectType ? 'text-text' : 'text-[#555]'
                         } font-mono body-text px-4 py-3.5 pr-10 outline-none transition-all text-left cursor-pointer focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)] hover:border-[#333]`}
@@ -359,7 +391,6 @@ export default function Contact() {
                   <FormGroup
                     label="Project Details"
                     required
-                    error={errors.details}
                   >
                     <textarea
                       id="details"
@@ -367,16 +398,26 @@ export default function Contact() {
                       placeholder="Tell me about your project, timeline, and specific requirements..."
                       value={formData.details}
                       onChange={handleInputChange}
+                      aria-label="Project details and requirements"
+                      aria-required="true"
+                      aria-invalid={errors.details ? 'true' : 'false'}
+                      aria-describedby={errors.details ? 'details-error' : undefined}
                       className={`w-full bg-[#0a0a0a] border ${
                         errors.details ? 'border-red-500 animate-shake' : 'border-border'
                       } text-text font-mono body-text px-4 py-3.5 outline-none transition-all resize-vertical min-h-[140px] leading-relaxed focus:border-accent focus:bg-[rgba(232,255,71,0.02)] focus:shadow-[0_0_0_3px_rgba(232,255,71,0.06)]`}
                     />
+                    {errors.details && (
+                      <span id="details-error" className="text-red-500 text-xs mt-1 block" role="alert">
+                        Project details are required
+                      </span>
+                    )}
                   </FormGroup>
 
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="group w-full flex items-center justify-center gap-3 px-8 py-5 bg-accent text-[#0a0a0a] font-syne text-sm font-bold uppercase tracking-wider mt-8 relative overflow-hidden transition-colors hover:text-white disabled:opacity-70"
+                    aria-label={isSubmitting ? 'Sending your message' : 'Send message to Syed Raza'}
+                    className="group w-full flex items-center justify-center gap-3 px-8 py-5 bg-accent text-[#0a0a0a] font-syne text-sm font-bold uppercase tracking-wider mt-8 relative overflow-hidden transition-colors hover:text-white disabled:opacity-70 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-[#141414]"
                   >
                     <span className="relative z-10">{isSubmitting ? 'Sending…' : 'Send Message'}</span>
                     <span className="relative z-10 inline-block transition-transform group-hover:translate-x-1">
@@ -461,11 +502,10 @@ function InfoBlock({ label, value, href, target }: InfoBlockProps) {
 interface FormGroupProps {
   label: string;
   required?: boolean;
-  error?: boolean;
   children: React.ReactNode;
 }
 
-function FormGroup({ label, required, error, children }: FormGroupProps) {
+function FormGroup({ label, required, children }: FormGroupProps) {
   return (
     <div className="flex flex-col gap-2 mb-5">
       <label className="small-text text-muted flex items-center gap-1">
@@ -473,7 +513,6 @@ function FormGroup({ label, required, error, children }: FormGroupProps) {
         {required && <span className="text-accent text-sm">*</span>}
       </label>
       {children}
-      {error && <span className="text-xs text-red-500">This field is required</span>}
     </div>
   );
 }

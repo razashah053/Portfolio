@@ -6,6 +6,14 @@ export default function Cursor() {
   const [cursorSize, setCursorSize] = useState({ dot: 10, ring: 36 });
   const ringRef = useRef<HTMLDivElement>(null);
   const rafId = useRef<number>();
+  
+  // Check if user prefers reduced motion
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  // Don't render custom cursor if user prefers reduced motion
+  if (prefersReducedMotion) {
+    return null;
+  }
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {

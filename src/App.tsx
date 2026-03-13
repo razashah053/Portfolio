@@ -22,6 +22,14 @@ const LoadingFallback = () => (
 function App() {
   return (
     <div className="bg-[#0a0a0a] text-text font-mono cursor-none overflow-x-hidden">
+      {/* Skip to main content link for keyboard navigation */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[10000] focus:px-4 focus:py-2 focus:bg-accent focus:text-[#0a0a0a] focus:font-bold focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+      >
+        Skip to main content
+      </a>
+
       <Cursor />
 
       {/* Noise overlay */}
@@ -34,7 +42,7 @@ function App() {
 
       <Navbar />
 
-      <main>
+      <main id="main-content">
         <Hero />
         <Marquee />
         <Suspense fallback={<LoadingFallback />}>
